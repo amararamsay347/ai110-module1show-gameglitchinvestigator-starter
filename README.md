@@ -26,27 +26,38 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 📝 Document Your Experience
 
 - [ ] Describe the game's purpose.
+A number-guessing game built by AI with hidden bugs. The goal is to find and fix them, using AI and tests.
 - [ ] Detail which bugs you found.
+The hints were backwards, the secret was turned into a string on even attempts, and New Game ignored the difficulty range.
 - [ ] Explain what fixes you applied.
+I swapped the hint messages and removed the string conversion. I also moved the logic into logic_utils.py and added tests, which all pass but 'The New Game' range is still broken.
 
 ## 📸 Demo Walkthrough
 
-Describe your fixed game in numbered steps so a reader can follow along without watching a video:
+## Demo Walkthrough
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+Sample game on Normal difficulty (range 1–100, 8 attempts). The secret number is 50.
 
-**Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
+1. The game starts with a score of 0. The player enters **40**.
+2. The game shows **"📈 Go HIGHER!"** (outcome: Too Low). The score drops by 5, to **-5**.
+3. The player enters **70**. The game shows **"📉 Go LOWER!"** (outcome: Too High). The score drops by 5, to **-10**.
+4. The player enters **60**. The game shows **"📉 Go LOWER!"** again. The score rises by 5, to **-5**.
+5. The player enters **abc**. The game shows **"That is not a number."** and the score stays at **-5**.
+6. The player enters **50**. The game shows **"🎉 Correct!"**, plays balloons, and reports **"You won! The secret was 50."** The win adds 40 points, for a final score of **35**.
+7. The game is over. Any further guess shows "You already won. Start a new game to play again."
+
 
 ## 🧪 Test Results
 
 ```
-# Paste your pytest output here, e.g.:
-# pytest tests/
-# ========================= X passed in 0.XXs =========================
+# configfile: pytest.ini
+testpaths: tests
+plugins: anyio-4.15.1
+collected 5 items                                                                                                                                                                                       
+
+tests\test_game_logic.py .....                                                                                                                                                                    [100%]
+
+========================================================================================== 5 passed in 0.02s ===========================================================================================
 ```
 
 ## 🚀 Stretch Features

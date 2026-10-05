@@ -49,7 +49,7 @@ Yes, Claude helped with explaining why the original tests failed and wrote two r
 ## 4. What did you learn about Streamlit and state?
 
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
-
+Streamlit reruns the entire script from the top to bottom each time the user does anything like click or type and normal variables reset each time. The session state is a dictionary which survies the reruns so the game is able to remember the secret, score and attempts. 
 ---
 
 ## 5. Looking ahead: your developer habits
@@ -58,3 +58,5 @@ Yes, Claude helped with explaining why the original tests failed and wrote two r
   - This could be a testing habit, a prompting strategy, or a way you used Git.
 - What is one thing you would do differently next time you work with AI on a coding task?
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+I aim to be more precise when asking Claude for prompts since the best results come from the precision and accuracy of the prompts. Next time I will be sure to be more specific with the prompts. 
+This project made me relaize that AI generated code could not replace a human coding since AI does not have human logic. 
